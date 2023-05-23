@@ -108,12 +108,12 @@ function arraySum (...input){
 }
 
 //arraySum(1,2)
-function twoDMatrix(){
+function twoDMatrix(rowNo){
     const matrix = [
         [1,2],
         [3,4]
     ]
-       let row = matrix[0]
+       let row = matrix[rowNo]
       
            const rowSum= row.reduce((prev,curr)=>{ return  prev+curr},0)
     return rowSum
@@ -125,24 +125,24 @@ const getLargest=(input)=>{
     let arr=input
     let other = []
     while (arr.length){
-        let largest = arr.reduce((prev,curr)=>{ if (prev>curr) {return prev} return curr}, o)
+        let largest = arr.reduce((prev,curr)=>{ if (prev>curr) {return prev} return curr}, 0)
         other.push(largest)
         arr.splice(arr.indexOf(largest),1)
     }
-    console.log(other);
+   // console.log(other);
     return other
 }
 //getLargest([2,5.1,5.12])
 
 
-const removeNegatives =()=>{
-let arr=[9,5,-2, 5, -9]
+const removeNegatives =(arr)=>{
+
 arr.map((each)=>{
     if (each<0){
         arr.splice(arr.indexOf(each),1)
     }
 })
-console.log(arr);
+return arr
 }
 //removeNegatives()
 
@@ -155,7 +155,8 @@ function removeSpaces(){
         }
     }) 
     last = splitted.join('')
-    console.log(last);
+  //  console.log(last);
+  return last
 }
 
 //removeSpaces()
@@ -202,5 +203,18 @@ function mostRepeated(){
    
 }
 
-mostRepeated()
-module.exports = {reverseInt ,createCounter , getLargest}
+//mostRepeated()
+
+function capitalize(input){
+    let split= input.split(" ")
+    let other = []
+    for (let each of split) {
+     let heh= each.split('')
+      other.push( each.charAt(0).toUpperCase()+ heh.slice(1,heh.length).join(''))
+    }
+   
+    return other.join(' ')
+}
+
+console.log(capitalize("hope this works"));
+module.exports = {reverseInt ,createCounter , getLargest,twoDMatrix, removeNegatives }

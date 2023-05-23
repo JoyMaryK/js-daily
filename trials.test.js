@@ -1,4 +1,4 @@
-const {reverseInt, createCounter, getLargest} = require('./trials');
+const {reverseInt, createCounter, getLargest, twoDMatrix, removeNegatives} = require('./trials');
 
 describe('tests for reverse int', ()=>{
     test('returns a number', () => {
@@ -35,3 +35,14 @@ describe('tests for get largest', ()=>{
     })
 })
 
+describe('tests for adding column on a 2D matrix', ()=>{
+    test('should add all elements of specified row', ()=>{
+            expect(twoDMatrix(0)).toEqual(3)
+    })
+})
+
+describe('tests for removing negatives',()=>{
+    test('should remove all negative numbers',()=>{
+        expect(removeNegatives([1,-2,5])).toEqual([1,5])
+    })
+})
