@@ -1,18 +1,18 @@
 function checkMultiples(no){
-    // for(let i=1; i<=no;i++){
-    //     console.log(i);
-    // }
-    if(no%3 == 0 && no%5 == 0){
+    for(let i=1; i<=no;i++){
+        
+    
+    if(i%3 == 0 && i%5 == 0){
         console.log("fizzbuzz");
-        return
-    }else if(no%3 == 0){
+        
+    }else if(i%3 == 0){
         console.log("buzz");
-    }else if(no%5 == 0){
+    }else if(i%5 == 0){
         console.log("fizz");
-    } 
-
+    }else console.log(i); 
+    }
 }
 
-checkMultiples(7)
+checkMultiples(20)
 
 module.exports= checkMultiples
