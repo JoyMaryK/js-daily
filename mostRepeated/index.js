@@ -1,26 +1,23 @@
-function mostRepeated(input) {
-  let value
-  if(typeof(input)=='object'){
-    value = input.toString().split(',')
-  }else{
-    value = input.toString().trim();
-  }
- 
-  let charCount = {};
-  for (let i = 0; i < value.length; i++) {
-    let char = value[i];
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
-  let mostAppearingChar = "";
-  let count = 0;
-  for (let char in charCount) {
-    if (charCount[char] > count) {
-      mostAppearingChar = char;
-
-      count = charCount[char];
-    }
-  }
- if  (typeof(input)=='object' ){ return +mostAppearingChar} return mostAppearingChar
+function mostRepeated(value) {
+  let valueArray = value.toString().split('');
+	let valueSet = new Set(valueArray);
+	let maxCount = 0;
+	let common = [];
+  
+	for (let value of valueSet) {
+	  let count = valueArray.reduce((x, val) => {
+		return x + (value.toLowerCase() === val.toLowerCase());
+	  }, 0);
+  
+	  if (count > maxCount) {
+		maxCount = count;
+		common = [value.toLowerCase()];
+	  } else if (count === maxCount && !common.includes(value.toLowerCase())) {
+		common.push(value.toLowerCase());
+	  }
+	}
+  
+	return common;
 
 }
 module.exports = { mostRepeated };
